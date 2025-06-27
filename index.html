@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banem Games™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+  <style>
+    body {
+      font-family: 'Rubik', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      color: white;
+      text-align: center;
+      padding: 2em 1em;
+    }
+    section.stats, section.about {
+      max-width: 1100px;
+      margin: 2em auto;
+      padding: 1em;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    .stats-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1em;
+    }
+    .stat-box {
+      flex: 1 1 250px;
+      text-align: center;
+      border-radius: 20px;
+      color: white;
+      padding: 2em 1em;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .stat-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .green { background: linear-gradient(to bottom right, #00c851, #007e33); }
+    .blue { background: linear-gradient(to bottom right, #33b5e5, #0099cc); }
+    .red { background: linear-gradient(to bottom right, #ff4444, #cc0000); }
+    .stat-icon {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      color: white;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .game-carousel {
+      max-width: 1000px;
+      margin: 4em auto;
+      text-align: center;
+      position: relative;
+    }
+    .carousel-wrapper {
+      display: flex;
+      overflow: hidden;
+      gap: 2em;
+      transition: transform 0.3s ease-in-out;
+    }
+    .carousel-card {
+      flex: 0 0 100%;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 2em 1em;
+      opacity: 1;
+    }
+    .carousel-card::before, .carousel-card::after {
+      content: "";
+      flex: 0 0 100%;
+      background: transparent;
+    }
+    .carousel-card img {
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 16px;
+    }
+    .carousel-card h3 {
+      margin: 1em 0 0.3em;
+    }
+    .carousel-card .year {
+      background: #ffa95c;
+      color: white;
+      padding: 0.3em 0.8em;
+      border-radius: 12px;
+      display: inline-block;
+      font-size: 0.85em;
+    }
+    .roblox-button {
+      margin-top: 1em;
+      padding: 0.8em 2em;
+      font-weight: bold;
+      background: #5865F2;
+      color: white;
+      border-radius: 50px;
+      display: inline-block;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .roblox-button:hover {
+      background: #3f4bd8;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, #ff6a00, #ee0979);
+      color: white;
+      border: none;
+      font-size: 2em;
+      padding: 0.4em 0.6em;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    .arrow:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+    .arrow.left { left: -1em; }
+    .arrow.right { right: -1em; }
+    footer {
+      background: #fff;
+      padding: 2em 1em;
+      margin-top: 4em;
+      text-align: center;
+    }
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      margin-top: 1em;
+    }
+    .social-buttons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.8em 1.5em;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .discord { background: #5865F2; }
+    .youtube { background: #FF0000; }
+    .roblox { background: #111; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Banem Games™</h1>
+    <p>Des jeux Roblox uniques, créés avec passion.</p>
+  </header>
+
+  <section class="stats">
+    <h2>Nos chiffres</h2>
+    <div class="stats-grid">
+      <div class="stat-box green">
+        <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+        <h3>300+</h3>
+        <p>Joueurs en 24h</p>
+      </div>
+      <div class="stat-box blue">
+        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>1K+</h3>
+        <p>Visites cumulées</p>
+      </div>
+      <div class="stat-box red">
+        <div class="stat-icon"><i class="fas fa-gamepad"></i></div>
+        <h3>2</h3>
+        <p>Jeux en développement</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="game-carousel">
+    <h2>Nos Jeux</h2>
+    <p>Fais défiler pour découvrir nos créations</p>
+    <button class="arrow left" onclick="prevSlide()">&#8592;</button>
+    <div class="carousel-wrapper" id="carousel">
+      <div class="carousel-card">
+        <img src="https://i.imgur.com/H9ouvhz.png" alt="Game Idea Generator">
+        <h3>Game Idea Generator</h3>
+        <span class="year">2024</span><br>
+        <a class="roblox-button" href="https://www.roblox.com/games/125546340498276/Game-Idea-Generator" target="_blank">Voir sur Roblox</a>
+      </div>
+    </div>
+    <button class="arrow right" onclick="nextSlide()">&#8594;</button>
+  </section>
+
+  <footer>
+    <h2>Rejoins notre communauté</h2>
+    <div class="social-buttons">
+      <a class="discord" href="https://discord.gg/zjsem8nc62" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+      <a class="youtube" href="https://www.youtube.com/@Banem_Games" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+      <a class="roblox" href="https://www.roblox.com/communities/34816828/Banem-Games#!/about" target="_blank"><i class="fas fa-cube"></i> Roblox</a>
+    </div>
+  </footer>
+
+  <script>
+    let currentIndex = 0;
+    const carousel = document.getElementById("carousel");
+
+    function nextSlide() {
+      currentIndex++;
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+    }
+  </script>
+</body>
+</html>
